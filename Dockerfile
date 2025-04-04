@@ -63,4 +63,4 @@ RUN mkdir -p /var/run/sshd && \
 EXPOSE 22
 
 USER user
-WORKDIR /home/user/Workdir
+WORKDIR /home/user/Workspace
