@@ -28,6 +28,7 @@ RUN apt update && apt upgrade -y && \
 	clang-format-19 \
 	clang-tidy-19 \
 	openssh-server \
+ 	ca-certificates \
  	--no-install-suggests --no-install-recommends
 
 # Create symlink
