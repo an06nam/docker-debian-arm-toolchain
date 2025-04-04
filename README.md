@@ -1,8 +1,10 @@
-# About this images
-This image will use debian 12.10 as a base image. using clang toolchain and currently is used to develop firmware for libopencm3. tested on ubuntu 22.04
+# About this repo
+This image will be used to develop firmware for bms based on stm32f407 chip.
 
-Your changes within container path $HOME/workspace will affect the workspace directory will be saved within the repo workspace
+The changes within container path $HOME/workspace will affect the workspace directory will be saved within the repo workspace
 
+   NOTE : DEFAULT CONTAINER PASSWORD will be 'user'
+   
 ## Generate and use the image
 1. Clone this repo
    ```bash
@@ -29,5 +31,3 @@ Your changes within container path $HOME/workspace will affect the workspace dir
        --mount type=bind,source=$(pwd)/Workspace/,target=/home/user/Workspace \
        arm-toolchain
    ```
-6. (OPTIONAL) I prefer using vscode and the [Dev Container extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers) to login and doing the development
-7. Finally you can start Developping your firmware 
