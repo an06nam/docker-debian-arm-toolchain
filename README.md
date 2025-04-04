@@ -12,8 +12,8 @@ Your changes within container path $HOME/workspace will affect the workspace dir
 3. Create the container and mount the workspace direcotry
     ```bash
     docker run -dit --name arm-toolchain \
-        -p  2222:22 \
-        --mount type=bind,source=Workspace/,target=/home/user/Workspace \
-        arm-toolchain
+    -p  2222:22 \
+    --mount type=bind,source=$(pwd)/Workspace/,target=/home/user/Workspace \
+    arm-toolchain
    ```
 4. (OPTIONAL) I prefer using vscode and the [Dev Container extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers) to login and doing the development
