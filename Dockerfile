@@ -34,7 +34,8 @@ RUN apt update && apt upgrade -y && \
 
 # Create symlink
 RUN ln -s $(which clang-format-19) /usr/bin/clang-format && \
-	ln -s $(which clang-tidy-19) /usr/bin/clang-tidy
+	ln -s $(which clang-tidy-19) /usr/bin/clang-tidy && \
+ 	ln -s $(which clangd-19) /usr/bin/clangd
 
 # Create user [ for a better user experiece at least for me ]
 RUN useradd -ms /bin/bash user && \
@@ -47,8 +48,7 @@ RUN cd $HOME && \
 	tar xvf *.tar.xz && \
 	mv LLVM-ET-Arm-19.1.5-Linux-x86_64 llvm-arm-19 && \
 	rm *.tar.xz && \
-	cd llvm-arm-19/bin && echo 'export PATH=$PATH:$(pwd)' >> $HOME/.bashrc && \
-	cd $HOME && \
+	echo 'export PATH=$PATH:$HOME/llvm-arm-19/bin' >> $HOME/.bashrc && \
 	git clone https://github.com/libopencm3/libopencm3.git && \
 	mkdir Workspace
 
