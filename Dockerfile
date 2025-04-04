@@ -4,14 +4,6 @@ FROM debian:12.10
 # Set default shell during Docker image build to bash
 SHELL ["/bin/bash", "-c"]
 
-# Check if the target architecture is x86_64 (amd64)
-RUN if [ "$TARGETARCH" = "amd64" ] ; then \
-		echo "Architecture $TARGETARCH is supported."; \
-	else \
-		echo "Unsupported architecture: $TARGETARCH"; \
-		exit 1; \
-	fi
-
 # Set non-interactive frontend for apt-get to skip any user confirmations
 ENV DEBIAN_FRONTEND=noninteractive
 
@@ -57,8 +49,7 @@ RUN cd $HOME && \
 	git clone https://github.com/libopencm3/libopencm3.git && \
 	mkdir Workspace
 
-WORKDIR /home/user/Workspace
-
+USER root
 # Clean up stale packages
 RUN apt-get clean -y && \
 	apt-get autoremove --purge -y && \
@@ -70,3 +61,6 @@ RUN mkdir -p /var/run/sshd && \
 
 # Expose SSH port
 EXPOSE 22
+
+USER user
+WORKDIR /home/user/Workdir
