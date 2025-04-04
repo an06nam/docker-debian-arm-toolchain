@@ -27,7 +27,8 @@ RUN apt update && apt upgrade -y && \
 	sudo \
 	clang-format-19 \
 	clang-tidy-19 \
-	openssh-server
+	openssh-server \
+ 	--no-install-suggests --no-install-recommends
 
 # Create symlink
 RUN ln -s $(which clang-format-19) /usr/bin/clang-format && \
