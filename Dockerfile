@@ -25,6 +25,7 @@ RUN apt update && apt upgrade -y && \
 	libnewlib-doc \
 	vim \
 	sudo \
+ 	clangd-19 \
 	clang-format-19 \
 	clang-tidy-19 \
 	openssh-server \
