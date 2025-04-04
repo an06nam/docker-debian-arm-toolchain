@@ -8,7 +8,7 @@ The changes within container path $HOME/workspace will affect the workspace dire
 ## Generate and use the image
 1. Clone this repo
    ```bash
-   git clone https://github.com/an06nam/docker-debian-arm-toolchain.git
+   git clone https://github.com/an06nam/BMS-STM32-Clang.git
    cd docker-debian-arm-toolchain
    ```
 2. Install Dependencies for flashing and debuggin the firmware
@@ -22,12 +22,12 @@ The changes within container path $HOME/workspace will affect the workspace dire
    ```
 4. abuild this image
    ```bash
-   docker build -t arm-toolchain -f Dockerfile .
+   docker build -t bms-firmware -f Dockerfile .
    ```
 5. Create the container and mount the workspace direcotry
     ```bash
-    docker run -dit --name arm-toolchain \
+    docker run -dit --name bms-firmware \
        -p  2222:22 \
        --mount type=bind,source=$(pwd)/Workspace/,target=/home/user/Workspace \
-       arm-toolchain
+       bms-firmware
    ```
