@@ -17,7 +17,7 @@ RUN apt update && apt upgrade -y && \
 	curl \
 	wget \
 	man\
-	arm-none-eabi-gcc \
+	gcc-arm-none-eabi \
 	cmake \
 	make \
 	ninja-build \
