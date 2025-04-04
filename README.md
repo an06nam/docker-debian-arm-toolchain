@@ -1,7 +1,5 @@
-    NOTE : this image still under development, currently just support for stm32 with libopencm3 framework. And currently tested on ubuntu 24.04
-
 # About this images
-    This image will use debian 12.10 as a base image. using clang toolchain and currently is used to develop firmware for libopencm3.
+    This image will use debian 12.10 as a base image. using clang toolchain and currently is used to develop firmware for libopencm3. tested on ubuntu 22.04
 
     Your changes within container path $HOME/workspace will affect the workspace directory will be saved within the repo workspace
 
