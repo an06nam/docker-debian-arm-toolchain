@@ -1,12 +1,10 @@
 # Setting
 ARG DEBIAN_VERSION=12.10-slim
-ARG TOOLCHAINS=/opt/toolchains
 
 # Set debian 12.10 as the base image
 FROM debian:${DEBIAN_VERSION}
 
 ARG DEBIAN_VERSION
-ARG TOOLCHAINS
 
 # Set default shell during Docker image build to bash
 SHELL ["/bin/bash", "-c"]
@@ -49,7 +47,7 @@ RUN cd /opt/toolchains && \
 	tar xvf *.tar.xz && \
 	mv LLVM-ET-Arm-19.1.5-Linux-x86_64 llvm-arm-19 && \
 	rm *.tar.xz && \
-	echo 'export PATH=$PATH:${TOOLCHAINS}/llvm-arm-19/bin' >> /root/.bashrc
+	echo 'export PATH=$PATH:/opt/toolchains/llvm-arm-19/bin' >> /root/.bashrc
 
 # Clean up cache
 RUN apt-get clean -y && \
